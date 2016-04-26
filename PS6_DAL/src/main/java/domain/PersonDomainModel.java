@@ -2,6 +2,8 @@ package domain;
 
 
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.UUID;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
@@ -16,6 +18,7 @@ import util.LocalDateAdapter;
 
 public class PersonDomainModel {
 
+	private UUID PersonID;
     private  StringProperty firstName;
     private  StringProperty lastName;
     private  StringProperty street;
@@ -26,7 +29,33 @@ public class PersonDomainModel {
     /**
      * Default constructor.
      */
+    protected PersonDomainModel() {
+	}
 
+	/**
+	 * Student - This constructor will generate a new instance of Student.
+	 * @param firstName
+	 * @param middleName
+	 * @param lastName
+	 * @param dOB
+	 */
+	public PersonDomainModel(StringProperty FirstName, StringProperty LastName, StringProperty Street, IntegerProperty PostalCode, StringProperty City, ObjectProperty<LocalDate> Birthday) {
+		super();
+		this.setPersonID(UUID.randomUUID());
+		firstName = FirstName;
+		lastName = LastName;
+		street = Street;
+		postalCode = PostalCode;
+		city = City;
+		birthday = Birthday;
+	}
+	
+	public UUID getPersonID() {
+		return PersonID;
+	}
+	private void setPersonID(UUID personID) {
+		PersonID = personID;
+	}
 
     public String getFirstName() {
         return firstName.get();
