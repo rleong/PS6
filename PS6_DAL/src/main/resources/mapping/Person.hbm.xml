@@ -30,7 +30,7 @@
 			<column name="City" length="20" not-null="true" />
 		</property>
 
-		<property name="Birthday" type="localdate">
+		<property name="Birthday" type="date">
 			<column name="Birthday" length="7" not-null="true" />
 		</property>
 	</class>
